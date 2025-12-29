@@ -103,8 +103,7 @@ export default function Index() {
       if (m === 2 && d === 29 && !isLeapYear(y)) {
         alert(`${y} is not a leap year. February only has 28 days in ${y}`);
       } else {
-        const monthNames = ["January", "February", "March", "April", "May", "June", 
-                           "July", "August", "September", "October", "November", "December"];
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         alert(`Invalid date! ${monthNames[m - 1]} only has ${maxDays} days`);
       }
       return;
