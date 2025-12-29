@@ -24,5 +24,7 @@ jobs:
       - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🚀 Build APK
-        run: eas build --platform android --profile preview --non-interactive --no-wait
+      - name: 🚀 Install EAS CLI and Build
+        run: |
+          npm install -g eas-cli
+          eas build --platform android --profile preview --non-interactive --no-wait
