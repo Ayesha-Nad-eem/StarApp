@@ -1,6 +1,6 @@
 name: Build Android APK
 on:
-  workflow_dispatch: # Allows you to run the build manually
+  workflow_dispatch:
 
 jobs:
   build:
@@ -25,6 +25,19 @@ jobs:
         run: npm install
 
       - name: 🚀 Install EAS CLI and Build
+        # We removed --no-wait so GitHub stays active until the APK is done
         run: |
           npm install -g eas-cli
-          eas build --platform android --profile preview --non-interactive --no-wait
+          eas build --platform android --profile preview --non-interactive
+
+      - name: 📥 Download APK Artifact
+        # This helper step pulls the finished file from Expo's servers to GitHub
+        run: |
+          mkdir -p build
+          curl -L $(eas build:list --platform android --profile preview --limit 1 --json | jq -r '.[0].artifacts.buildUrl') -o build/app-release.apk
+
+      - name: 📤 Upload to GitHub Summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk
+          path: build/app-release.apk
