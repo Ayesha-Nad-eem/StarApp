@@ -13,20 +13,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
-      - name: 🏗 Setup Expo and EAS
+      - name: 📦 Install EAS CLI Globally
+        # This creates the 'eas' command manually on the GitHub server
+        run: npm install -g eas-cli
+
+      - name: 🏗 Setup Expo
         uses: expo/expo-github-action@v8
         with:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: 📦 Install dependencies
+      - name: 📦 Install Project Dependencies
         run: npm install
 
       - name: 🚀 Build APK
-        # We use 'npx eas-cli' instead of just 'eas' to be 100% explicit
-        run: npx eas-cli build --platform android --profile preview --non-interactive --no-wait
-
-      - name: ✅ Success Message
-        run: echo "Build has been triggered! Go to https://expo.dev/artifacts to see progress."
+        # We use 'eas' directly now because it was installed globally in step 3
+        run: eas build --platform android --profile preview --non-interactive --no-wait
