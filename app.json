@@ -18,7 +18,8 @@
         "backgroundColor": "#030712"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.ayeshanadeem1.StarApp"
+      "package": "com.ayeshanadeem1.StarApp",
+      "jsEngine": "hermes"
     },
     "web": {
       "bundler": "metro",
