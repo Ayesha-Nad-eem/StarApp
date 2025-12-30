@@ -1,10 +1,10 @@
 {
   "expo": {
     "name": "StarApp",
-    "slug": "StarApp",
+    "slug": "starapp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.jpeg",
+    "icon": "./assets/images/favicon.png",
     "scheme": "starapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -31,7 +31,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.jpeg",
+          "image": "./assets/images/favicon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#030712"
@@ -45,7 +45,7 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "23f32384-4289-4fae-b39d-dcf3818711eb"
+        "projectId": "c5a259f5-9b18-4938-aaec-b53fd276252d"
       }
     }
   }
